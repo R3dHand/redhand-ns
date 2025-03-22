@@ -1,0 +1,36 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    gap: 10px;
+    
+    height: 100%;
+
+    overflow: auto;
+}
+
+.header {
+    grid-row: span 1;
+    grid-column: span 12;
+
+    display: flex;
+    justify-content: space-around;
+
+    height: 100%;
+    width: 100%;
+
+    button {
+        cursor: pointer;
+        background-color: black;
+        color: white;
+    }
+}
+
+.content {
+    grid-row: span 11;
+    grid-column: span 12;
+    overflow: auto;
+
+    height: 100%;
+}
+
