@@ -1,8 +1,16 @@
 <div class="container ">
     <div class="header">
-        <button title="IsAuthorized">IsAuthorized</button>
-        <button title="LogIn">LogIn</button>
-        <button title="LogOut">LogOut</button>
+        <div>
+        	<span>Authenticated: {{  authenticated }}</span>
+        </div>
+        <div>
+        	<button title="LogIn" (click)="login()">LogIn</button>
+        	<span></span>
+        </div>
+        <div>
+        	<button title="LogOut" (click)="logout()">LogOut</button>
+        	<span></span>
+        </div>
     </div>
 
     <div class="content">
