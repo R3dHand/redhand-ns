@@ -13,21 +13,20 @@ import Keycloak from 'keycloak-js';
 })
 export class AppComponent {
     title = 'redhand-ns';
-
-  authenticated = false;
+    authenticated = false;
 
     constructor(
         private readonly keycloak: Keycloak
     ) {
+    // keycloak events
         const keycloakSignal = inject(KEYCLOAK_EVENT_SIGNAL);
-
         effect(() => {
             const keycloakEvent = keycloakSignal();
-
+            // login
             if (keycloakEvent.type === KeycloakEventType.Ready) {
                 this.authenticated = typeEventArgs<ReadyArgs>(keycloakEvent.args);
             }
-
+            // logout
             if (keycloakEvent.type === KeycloakEventType.AuthLogout) {
                 this.authenticated = false;
             }

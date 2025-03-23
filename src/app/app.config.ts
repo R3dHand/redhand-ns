@@ -3,17 +3,18 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { loggingInterceptor } from './components/auth/interceptors/logging.interceptor';
 
 import {
     provideKeycloak,
     createInterceptorCondition,
     IncludeBearerTokenCondition,
-    INCLUDE_BEARER_TOKEN_INTERCEPTOR_CONFIG
+    INCLUDE_BEARER_TOKEN_INTERCEPTOR_CONFIG,
+    includeBearerTokenInterceptor
 } from 'keycloak-angular';
+import { loggingInterceptor } from './components/auth/interceptors/logging.interceptor';
 
 const urlCondition = createInterceptorCondition<IncludeBearerTokenCondition>({
-    urlPattern: /^(http:\/\/localhost:4200)(\/.*)?$/i,
+    urlPattern: /^(http:\/\/localhost:3000)(\/.*)?$/i,
     bearerPrefix: 'Bearer'
 });
 
@@ -23,6 +24,7 @@ export const appConfig: ApplicationConfig = {
         provideRouter(routes),
         provideHttpClient(
             withInterceptors([
+                includeBearerTokenInterceptor,
                 loggingInterceptor
             ])
         ),

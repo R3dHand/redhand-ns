@@ -16,6 +16,6 @@ export class FoodDataCentralService {
 
     helloWorld(): Observable<string> {
 
-        return this.httpClient.get(`http://localhost:3000`, {responseType: 'text'});
+        return this.httpClient.get(`http://localhost:3000/HelloWorld`, {responseType: 'text'});
     }
 }
