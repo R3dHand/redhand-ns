@@ -1,7 +1,7 @@
 export class UserModel {
-    userName: string;
+    userName: string | undefined = undefined;
+    isAuthenticated: boolean = false;
 
-    constructor (username: string) {
-        this.userName = username;
+    constructor () {
     }
 }

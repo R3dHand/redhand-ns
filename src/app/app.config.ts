@@ -11,7 +11,7 @@ import {
     INCLUDE_BEARER_TOKEN_INTERCEPTOR_CONFIG,
     includeBearerTokenInterceptor
 } from 'keycloak-angular';
-import { loggingInterceptor } from './components/auth/interceptors/logging.interceptor';
+import { loggingInterceptor } from './auth/interceptors/logging.interceptor';
 
 const urlCondition = createInterceptorCondition<IncludeBearerTokenCondition>({
     urlPattern: /^(http:\/\/localhost:3000)(\/.*)?$/i,

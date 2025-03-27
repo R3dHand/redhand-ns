@@ -1,0 +1,41 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 50%;
+    background-color: var(--surface-container);
+    padding: 10px;
+    border-radius: 10px;
+
+    box-shadow: 0px 1px 2px -1px var(--shadow);;
+}
+
+.card-footer {
+    // background-color: ;
+    button {
+        background-color: var(--primary);
+        color: var(--on-primary);
+
+        padding: 10px;
+        border-radius: 50%;
+
+        cursor: pointer;
+    }
+}
+
+
+.secondary {
+        button {
+            background-color: var(--secondary);
+            color: var(--on-secondary);
+
+            padding: 10px;
+            border-radius: 50%;
+
+            cursor: pointer;
+    }
+}

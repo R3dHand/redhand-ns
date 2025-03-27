@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { UserSettingsComponent } from './components/users/user-settings/user-settings.component';
 
-import { canActivateAuthRole } from './components/auth/guards/auth-role.guard';
+import { canActivateAuthRole } from './auth/guards/auth-role.guard';
 
 export const routes: Routes = [
     // no auth
