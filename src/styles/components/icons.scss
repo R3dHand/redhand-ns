@@ -4,17 +4,31 @@
     align-items: center;
 
     cursor: pointer;
-    width: 100%;
+    min-width: 40px;
     height: 40px;
-    margin: 8px;
-
+    padding: 8px;
     border-radius: 20px;
+
+}
+.icon-large {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    min-width: 48px;
+    height: 48px;
+    padding: 8px;
+    border-radius: 24px;
+
 }
 .icon-label {
-    text-align: justify;
-    text-justify: inter-word;
-
     padding: 0 5px;
+    font: var(--label-medium);
+}
+.icon-label-large {
+    padding: 0 5px;
+    font: var(--label-large);
 }
 
 
@@ -32,13 +46,27 @@ $icon-surface: (
 );
 
 @each $role, $value in $icon-surface {
-    .#{role}-icon-hover {
+    .#{$role}-icon {
+        background-color: var(--#{$role});
         color: var(--on-surface);
         svg {
             fill: var(--on-surface);
         }
     }
+    .#{$role}-icon:hover {
+        background-color: var(--#{$role});
+        color: var(--on-surface);
+        svg {
+            fill: var(--on-surface);
+        } 
+    }
 
+    .#{$role}-icon-hover {
+        color: var(--on-surface);
+        svg {
+            fill: var(--on-surface);
+        }
+    }
     .#{$role}-icon-hover:hover {
         background-color: var(--#{$role});
         color: var(--on-surface);
@@ -55,13 +83,20 @@ $icon-container: (
     error-container: #93000a
 );
 @each $role, $value in $icon-container {
+    .#{$role}-icon {
+        background-color: var(--#{$role});
+        color: var(--on-#{$role});
+        svg {
+            fill: var(--on-#{$role});
+        }
+    }
+    
     .#{role}-icon-hover {
         color: var(--on-#{$role});
         svg {
             fill: var(--on-#{$role});
         }
     }
-
     .#{$role}-icon-hover:hover {
         background-color: var(--#{$role});
         color: var(--on-#{$role});

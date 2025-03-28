@@ -1,7 +1,14 @@
 export class UserModel {
-    userName: string | undefined = undefined;
-    isAuthenticated: boolean = false;
+    isAuthenticated: boolean;
 
-    constructor () {
+    email: string | undefined;
+    firstName: string | undefined;
+    lastName: string | undefined;
+    userName: string | undefined;
+
+    avatarInitials: string | undefined;
+
+    constructor (isAuthenticated: boolean) {
+        this.isAuthenticated = false;
     }
 }
