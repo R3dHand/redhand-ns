@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { UserSettingsComponent } from './components/users/user-settings/user-settings.component';
+import { HomeComponent } from './pages/home/home.component';
 
 import { canActivateAuthRole } from './auth/guards/auth-role.guard';
+import { AdminComponent } from './pages/admin/admin.component';
 
 export const routes: Routes = [
     // no auth
@@ -12,10 +12,10 @@ export const routes: Routes = [
     },
     // auth required
     {
-        path: 'UserSettings',
-        component: UserSettingsComponent,
+        path: 'admin',
+        component: AdminComponent,
         canActivate: [canActivateAuthRole],
-        data: { role: 'user' }
+        data: { role: 'ns-admin' }
     },
     {
         path: '**',

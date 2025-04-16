@@ -14,7 +14,7 @@ import {
 import { loggingInterceptor } from './auth/interceptors/logging.interceptor';
 
 const urlCondition = createInterceptorCondition<IncludeBearerTokenCondition>({
-    urlPattern: /^(http:\/\/localhost:3000)(\/.*)?$/i,
+    urlPattern: /^(http:\/\/localhost:3000\/*)/i,
     bearerPrefix: 'Bearer'
 });
 

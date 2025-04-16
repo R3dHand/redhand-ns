@@ -46,6 +46,13 @@ $icon-surface: (
 );
 
 @each $role, $value in $icon-surface {
+    .#{$role}-icon-no-hover {
+        background-color: var(--#{$role});
+        color: var(--on-surface);
+        svg {
+            fill: var(--on-surface);
+        }
+    }
     .#{$role}-icon {
         background-color: var(--#{$role});
         color: var(--on-surface);

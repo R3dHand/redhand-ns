@@ -70,7 +70,7 @@
     --title-small-size: .875rem;
     --title-small-tracking: .006rem;
     --title-small-weight: 500;
-    
+
     /* font-weight font-size/line-height font-family */
     --body-large: 400 1rem / 1.5rem "Roboto", sans-serif;
     --body-large-font: "Roboto", sans-serif;
@@ -139,13 +139,5 @@ $types:
     'title-medium',
     'title-small'
 ;
-@each $type in $types {
-    .#{$type} {
-        font: var(--#{$type}-font);
-        line-height: var(--#{$type}-line-height);
-        font-size: var(--#{$type}-size);
-        letter-spacing: var(--#{$type}-tracking);
-        font-weight: var(--#{$type}-weight);
-    }
-}
+
 

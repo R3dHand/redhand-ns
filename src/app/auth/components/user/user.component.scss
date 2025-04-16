@@ -1,0 +1,68 @@
+
+.user-container {
+    position: relative;
+}
+
+.acct-mgmt-container {
+    position: fixed;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: start;
+
+    background-color: var(--surface-container-high);
+    color: var(--on-surface);
+
+    z-index: var(--overlay-dialog-starting-z-index);
+
+    margin: 8px 16px;
+
+    border-radius: var(--border-radius-medium);
+}
+
+.profile-data-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    gap: 8px;
+    padding: 8px;
+}
+
+.user-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-avatar {
+    background-color: var(--primary);
+    color: var(--on-primary);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.user-acct-option {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    color: var(--on-surface-variant);
+    cursor: pointer;
+
+    width: 100%;
+    padding: 4px 8px;
+
+    border-radius: var(--border-radius-medium);
+
+    svg {
+        fill: var(--on-surface-variant);
+    }
+}
+.user-acct-option:hover {
+    background-color: var(--surface-variant);
+    color: var(--on-surface-variant);
+}

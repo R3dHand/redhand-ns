@@ -1,4 +1,23 @@
 @use './themes';
+@use './typography';
+
+:root {
+    --overlay-starting-z-index: 100;
+    --overlay-dialog-starting-z-index: 101;
+
+    --border-radius-none: 0;
+    --border-radius-extra-large: 28px;
+    --border-radius-extra-large-top: 28px 28px 0 0;
+    --border-radius-full: 9999px;
+    --border-radius-large: 16px;
+    --border-radius-large-end: 0 16px 16px 0;
+    --border-radius-large-start: 16px 0 0 16px;
+    --border-radius-large-top: 16px 16px 0 0;
+    --border-radius-medium: 12px;
+    --border-radius-small: 8px;
+    --border-radius-extra-small: 4px;
+    --border-radius-extra-small-top: 4px 4px 0 0;
+}
 
 html, body { min-height: 100vh; }
 
@@ -21,6 +40,17 @@ body {
     color: var(--on-background);
 }
 
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    background-color: var(--scrim);
+    opacity: 0.32;
+    z-index: var(--overlay-starting-z-index);
+}
+
+// themes
 .dark {
     @each $role, $value in themes.$ns-dark-theme {
         --#{$role}: #{$value};
@@ -31,5 +61,33 @@ body {
     @each $role, $value in themes.$ns-light-theme {
         --#{$role}: #{$value};
     }
+}
+
+// typography
+@each $type in typography.$types {
+    .#{$type} {
+        font: var(--#{$type}-font);
+        line-height: var(--#{$type}-line-height);
+        font-size: var(--#{$type}-size);
+        letter-spacing: var(--#{$type}-tracking);
+        font-weight: var(--#{$type}-weight);
+    }
+}
+
+//label-medium-weight-prominent
+.label-medium-prominent {
+    font: var(--label-medium-font);
+    line-height: var(--label-medium-line-height);
+    font-size: var(--label-medium-size);
+    letter-spacing: var(--label-medium-tracking);
+    font-weight: var(--label-medium-weight-prominent);
+}
+//label-large-weight-prominent
+.label-large-prominent {
+    font: var(--label-large-font);
+    line-height: var(--label-large-line-height);
+    font-size: var(--label-large-size);
+    letter-spacing: var(--label-large-tracking);
+    font-weight: var(--label-large-weight-prominent);
 }
 

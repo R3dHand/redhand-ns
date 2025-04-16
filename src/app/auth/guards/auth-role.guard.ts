@@ -14,7 +14,7 @@ const isAccessAllowed = async (
         return false;
     }
 
-    const hasRequiredRole = (role: string): boolean => Object.values(grantedRoles.resourceRoles).some((roles) => roles.includes(role));
+    const hasRequiredRole = (role: string): boolean => Object.values(grantedRoles.realmRoles).some((roles) => roles.includes(role));
 
     if (authenticated && hasRequiredRole(requiredRole)) {
         return true;
