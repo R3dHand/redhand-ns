@@ -1,0 +1,29 @@
+<!-- trigger button -->
+<div class="single-select">
+    <div class="trigger" (click)="panelOpen = !panelOpen">
+        <!-- <app-button [title]="value === null ? triggerText : value" style="width: 100%;"
+                    [setOpacity]="value === null ? true : false">{{ triggerText }}
+        </app-button> -->
+        <input type="button" title="{{ triggerText }}" value="{{ triggerText }}" />
+        <span class="open-close-icons">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-360 280-560h400L480-360Z"/></svg>
+        </span>
+    </div>
+
+    
+    @if (panelOpen) {
+        <div class="options-panel">
+            @for (option of options; track $index) {
+                <div class="option" (click)="setValue(option)">
+                    <span>{{ option }}</span>
+                </div>
+            } @empty {
+                <p>single-select requires options</p>
+            }  
+
+        </div>
+        <div class="overlay" (click)="panelOpen = !panelOpen"></div>
+    }
+
+</div>
+

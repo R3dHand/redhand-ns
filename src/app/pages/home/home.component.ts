@@ -1,8 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { BrowserComponent } from '../../components/browser/browser.component';
 
 @Component({
     selector: 'app-home',
-    imports: [],
+    imports: [
+        BrowserComponent
+    ],
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss'
 })

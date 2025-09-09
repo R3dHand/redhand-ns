@@ -1,0 +1,13 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--scrim);
+    opacity: 0.1;
+    color: white;
+
+    // overlay index
+    z-index: 99;
+}

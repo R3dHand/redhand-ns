@@ -15,11 +15,10 @@ import { AppBarComponent } from './components/app-bar/app-bar.component';
 })
 export class AppComponent implements OnInit{
     title = 'redhand-ns';
-    lightsOn: boolean = false;
 
     constructor(
     ) {
-
+    
     }
 
     ngOnInit(): void {

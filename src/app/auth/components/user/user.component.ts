@@ -5,6 +5,7 @@ import { UserPreferencesService } from '../../services/user-preferences.service'
 import { UserPreferences } from '../../models/user-preferences.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DOCUMENT } from '@angular/common';
+import { PagePreferencesService } from '../../../services/page-preferences/page-preferences.service';
 
 @Component({
   selector: 'app-user',
@@ -20,6 +21,7 @@ export class UserComponent implements OnInit, OnDestroy{
     constructor(
         private authService: AuthService,
         private userPreferencesService: UserPreferencesService,
+        private pagePreferences: PagePreferencesService,
         private renderer: Renderer2,
         @Inject(DOCUMENT) private document: Document
     ) {
@@ -43,7 +45,7 @@ export class UserComponent implements OnInit, OnDestroy{
 
     setUser(user: UserModel) {
         this.user = user;
-        this.userPreferencesService.preferences().subscribe({
+        this.userPreferencesService.get().subscribe({
             next: this.setUserPreferences.bind(this),
             error: this.handleError.bind(this)
         });
@@ -55,17 +57,26 @@ export class UserComponent implements OnInit, OnDestroy{
         //theme
         switch (this.user.preferences.theme) {
             case 'dark':
-                this.toggleDarkMode();
+                this.pagePreferences.toggleDarkMode();
                 break;
             case 'light':
-                this.toggleLightMode();
+                this.pagePreferences.toggleLightMode();
                 break;
             default:
-                this.toggleLightMode();
+                this.pagePreferences.toggleLightMode();
                 break;
         }
-    }   
+    } 
 
+    patchUserTheme(theme: string) {
+        let preferences = this.user.preferences;
+        preferences.theme = theme;
+
+        this.userPreferencesService.patch(preferences).subscribe({
+            next: this.setUserPreferences.bind(this),
+            error: this.handleError.bind(this)
+        });
+    }
 
     handleError(error: HttpErrorResponse) {
         console.log(error);
@@ -73,28 +84,5 @@ export class UserComponent implements OnInit, OnDestroy{
 
     ngOnDestroy(): void {
         this.userSubscription.unsubscribe();
-    }
-
-
-    toggleDarkMode() {
-        this.user.preferences.theme = 'dark';
-        this.renderer.addClass(this.document.body, 'dark');
-        this.renderer.removeClass(this.document.body, 'light');
-
-        this.userPreferencesService.updatePreferences(this.user.preferences).subscribe({
-            // next: this.setUserPreferences.bind(this),
-            error: this.handleError.bind(this)
-        });
-    }
-
-    toggleLightMode() {
-        this.user.preferences.theme = 'light';
-        this.renderer.addClass(this.document.body, 'light');
-        this.renderer.removeClass(this.document.body, 'dark');
-
-        this.userPreferencesService.updatePreferences(this.user.preferences).subscribe({
-            // next: this.setUserPreferences.bind(this),
-            error: this.handleError.bind(this)
-        });
     }
 }
