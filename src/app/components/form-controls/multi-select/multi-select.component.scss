@@ -1,4 +1,4 @@
-.single-select {
+.multi-select {
     justify-content: end;
     position: relative;
     display: flex;
@@ -28,13 +28,25 @@ input[type="button"] {
     background-color: inherit;
     color: inherit;
 }
+
 .open-close-icons {
     fill: var(--on-surface);
 }
 
+.options-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 5px;
+}
+.close-icon:hover {
+    cursor: pointer;
+}
 
 .options-panel {
     position: fixed;
+
     border-radius: var(--border-radius-medium);
     z-index: 100;
 
@@ -45,6 +57,7 @@ input[type="button"] {
 }
 
 .option {
+    display: flex;
     text-align: center;
 
     padding: 5px;
@@ -58,3 +71,6 @@ input[type="button"] {
     cursor: pointer;
 }
 
+.checkbox {
+    fill: var(--on-surface);
+}

@@ -1,0 +1,42 @@
+<div class="multi-select">
+    <div class="trigger" (click)="panelOpen = !panelOpen">
+        <input type="button" title="{{ triggerText }}" value="{{ triggerText }}" />
+        <span class="open-close-icons">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-360 280-560h400L480-360Z"/></svg>
+        </span>
+    </div>
+
+    @if (panelOpen) {
+        <div class="options-panel">
+            <div class="options-header">
+                <span>{{ triggerText }}</span>
+                @if ((value !== null || value!== undefined) && value.length > 0) {
+                    <span class="close-icon" (click)="value = []">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    </span>
+                }
+            </div>
+
+            @for (option of options; track $index) {
+                <div class="option" (click)="setValue(option)">
+                    @if (value.includes(option)) {
+                        <!-- selected -->
+                        <span class="checkbox">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="m424-312 282-282-56-56-226 226-114-114-56 56 170 170ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>
+                        </span>
+                    } @else {
+                        <!-- not selected -->
+                        <span class="checkbox">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Z"/></svg>
+                        </span>
+                    }
+                    <span>{{ option }}</span>
+                </div>
+            } @empty {
+                <p>single-select requires options</p>
+            }  
+
+        </div>
+        <div class="overlay" (click)="panelOpen = !panelOpen"></div>
+    }
+</div>

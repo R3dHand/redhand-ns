@@ -15,8 +15,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class SingleSelectComponent implements OnInit, ControlValueAccessor  {
 
     @Input() options: string[] = [];
-    @Input() triggerText:string = '';
-
+    @Input() triggerText: string = '';
+    triggerName: string = '';
     panelOpen:boolean = false;
     
     value: string|null = null;
@@ -28,6 +28,7 @@ export class SingleSelectComponent implements OnInit, ControlValueAccessor  {
     }
     
     ngOnInit(): void {
+        this.triggerName = this.triggerText;
         const noneIndex = this.options.indexOf('');
         if (noneIndex !== -1) {
             this.options[noneIndex] = 'none';
@@ -52,6 +53,12 @@ export class SingleSelectComponent implements OnInit, ControlValueAccessor  {
 
         const optionValue:string|null = value === 'none' ? null : value;
         this.value = optionValue;
+
+        if (optionValue !== null) {
+            this.triggerText = optionValue;
+        } else {
+            this.triggerText = this.triggerName;
+        }
 
         this.onChange(this.value);
         this.onTouched();
