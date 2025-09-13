@@ -10,13 +10,15 @@ import { SearchResultModel } from '../../models/usda/search-result.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SingleSelectComponent } from '../form-controls/single-select/single-select.component';
 import { MultiSelectComponent } from '../form-controls/multi-select/multi-select.component';
+import { InputNumericComponent } from '../form-controls/input-numeric/input-numeric.component';
 
 @Component({
     selector: 'app-browser',
     imports: [
         ReactiveFormsModule,
         SingleSelectComponent,
-        MultiSelectComponent
+        MultiSelectComponent,
+        InputNumericComponent
     ],
     templateUrl: './browser.component.html',
     styleUrl: './browser.component.scss'

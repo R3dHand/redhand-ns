@@ -20,11 +20,23 @@
                     <input formControlName="brandOwner" type="text" title="Brand Owner" placeholder="brandowner" />
                 </div>
                 <div class="control box-shadow">
-                    <input formControlName="pageSize" type="text" title="Page Size" placeholder="page size"  style="max-width: 100px;" />
+                    <app-input-numeric formControlName="pageSize"
+                               [title]="'Page Size'"
+                               [placeholder]="'page size'">
+                    </app-input-numeric>
                 </div>
 
                 <div class="control box-shadow">
-                    <input formControlName="pageNumber" type="text" title="Page Number" placeholder="page number"  style="max-width: 100px;" />
+                    <app-input-numeric formControlName="pageNumber"
+                                       title="Page Number"
+                                       placeholder="page number">
+                    </app-input-numeric>
+                </div>
+                <div class="box-shadow">
+                    <input type="date" title="Start Date" placeholder="mm/dd/yyyy" />
+                </div>
+                <div class="box-shadow">
+                    <input type="date" title="End Date" placeholder="mm/dd/yyyy" />
                 </div>
             </div>
 
@@ -59,15 +71,6 @@
                                       style="width: 100%;"
                                       formControlName="selectedTradeChannels">
                     </app-multi-select>
-                </div>
-            </div>
-
-            <div class="control-container">
-                <div class="box-shadow">
-                    <input type="date" title="Start Date" placeholder="mm/dd/yyyy" />
-                </div>
-                <div class="box-shadow">
-                    <input type="date" title="End Date" placeholder="mm/dd/yyyy" />
                 </div>
             </div>
         </form>
