@@ -1,5 +1,10 @@
-<input type="number"
-       placeholder="{{ placeholder}}"
-       title="{{ title }}"
-       value="{{ value }}"
-       (input)="onInput($event)" />
+<div class="field" [style.--input-width]="chWidth">
+    <input type="number"
+        placeholder="{{ placeholder}}"
+        title="{{ title }}"
+        value="{{ value }}"
+        (input)="onInput($event)"
+        id="{{ id }}" />
+
+    <label [for]="id">{{ label }}</label>
+</div>

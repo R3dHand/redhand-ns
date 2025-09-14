@@ -22,14 +22,18 @@
                 <div class="control box-shadow">
                     <app-input-numeric formControlName="pageSize"
                                [title]="'Page Size'"
-                               [placeholder]="'page size'">
+                               [placeholder]="'Page Size'"
+                               [label]="'Page Size'"
+                               [id]="'pageSize'">
                     </app-input-numeric>
                 </div>
 
                 <div class="control box-shadow">
                     <app-input-numeric formControlName="pageNumber"
-                                       title="Page Number"
-                                       placeholder="page number">
+                                       [title]="'Page Number'"
+                                       [placeholder]="'Page Number'"
+                                       [label]="'Page Number'"
+                                       [id]="'pageNumber'">
                     </app-input-numeric>
                 </div>
                 <div class="box-shadow">
@@ -44,7 +48,6 @@
                 <div class="control box-shadow">
                     <app-single-select [options]="sortOrder.options"
                                        [triggerText]="'sort order'"
-                                       style="width: 100%;"
                                        formControlName="selectedSortOrder">
                     </app-single-select>
                 </div>
@@ -52,7 +55,6 @@
                 <div class="control box-shadow">
                     <app-single-select [options]="sortBy.options"
                                     [triggerText]="'sort by'"
-                                    style="width: 100%;"
                                     formControlName="selectedSortBy">
                     </app-single-select>
                 </div>
@@ -60,7 +62,6 @@
                 <div class="control box-shadow">
                     <app-multi-select [options]="dataTypes.options"
                                       [triggerText]="'data types'"
-                                      style="width: 100%;"
                                       formControlName="selectedDataTypes">
                     </app-multi-select>
                 </div>
@@ -68,7 +69,6 @@
                 <div class="control box-shadow">
                     <app-multi-select [options]="tradeChannels.options"
                                       [triggerText]="'trade channels'"
-                                      style="width: 100%;"
                                       formControlName="selectedTradeChannels">
                     </app-multi-select>
                 </div>

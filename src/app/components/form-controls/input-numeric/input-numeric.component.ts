@@ -16,14 +16,17 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class InputNumericComponent implements OnInit, ControlValueAccessor {
     @Input() title: string = '';
     @Input() placeholder: string = '';
+    @Input() label: string = '';
+    @Input() id: string = '';
 
     value: number|null = null;
     onChange = (value: number | null): void => {};
     onTouched = (): void => {};
     disabled: boolean = false;
-
+    chWidth: string = '';
+    
     ngOnInit(): void {
-        
+        this.chWidth = `calc(${this.placeholder.length + 2}ch)`;
     }
 
     writeValue(obj: number|null): void {
@@ -40,8 +43,9 @@ export class InputNumericComponent implements OnInit, ControlValueAccessor {
     }
 
     onInput(event: Event): void {
-    const val = (event.target as HTMLInputElement).value;
-    this.value = val === '' ? null : Number(val);
-    this.onChange(this.value);
+        const val = (event.target as HTMLInputElement).value;
+        this.value = val === '' ? null : Number(val);
+        this.onChange(this.value);
     }
 }
+
