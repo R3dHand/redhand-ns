@@ -1,6 +1,6 @@
 <div class="multi-select">
     <div class="trigger" (click)="panelOpen = !panelOpen">
-        <input type="button" title="{{ triggerText }}" value="{{ triggerText }}" />
+        <input type="button" title="{{ triggerText }}" value="{{ triggerTextValue }}" />
         <span class="open-close-icons">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-360 280-560h400L480-360Z"/></svg>
         </span>
@@ -8,15 +8,6 @@
 
     @if (panelOpen) {
         <div class="options-panel">
-            <div class="options-header">
-                <span>{{ triggerText }}</span>
-                @if ((value !== null || value!== undefined) && value.length > 0) {
-                    <span class="close-icon" (click)="value = []">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-                    </span>
-                }
-            </div>
-
             @for (option of options; track $index) {
                 <div class="option" (click)="setValue(option)">
                     @if (value.includes(option)) {

@@ -34,7 +34,8 @@ input[type="button"] {
 
 
 .options-panel {
-    position: fixed;
+    position: absolute;
+    top: 1.5rem;
     border-radius: var(--border-radius-medium);
     z-index: 100;
 
@@ -45,7 +46,7 @@ input[type="button"] {
 }
 
 .option {
-    text-align: center;
+    // text-align: center;
 
     padding: 5px;
 

@@ -17,9 +17,6 @@
         <form [formGroup]="searchCriteriaForm" class="search-filters-container" style="margin-top: 16px;">
             <div class="control-container">
                 <div class="control box-shadow">
-                    <input formControlName="brandOwner" type="text" title="Brand Owner" placeholder="brandowner" />
-                </div>
-                <div class="control box-shadow">
                     <app-input-numeric formControlName="pageSize"
                                [title]="'Page Size'"
                                [placeholder]="'Page Size'"
@@ -36,43 +33,54 @@
                                        [id]="'pageNumber'">
                     </app-input-numeric>
                 </div>
+
+                <div class="control box-shadow">
+                    <app-input-text formControlName="brandOwner"
+                                    [title]="'Brand Owner'"
+                                    [placeholder]="'Brand Owner'"
+                                    [label]="'Brand Owner'"
+                                    [id]="'brandOwner'">
+                    </app-input-text>
+                </div>
+
                 <div class="box-shadow">
-                    <input type="date" title="Start Date" placeholder="mm/dd/yyyy" />
+                    <input type="date" formControlName="startDate" title="Start Date" placeholder="mm/dd/yyyy" />
                 </div>
                 <div class="box-shadow">
-                    <input type="date" title="End Date" placeholder="mm/dd/yyyy" />
+                    <input type="date" formControlName="endDate" title="End Date" placeholder="mm/dd/yyyy" />
                 </div>
             </div>
 
             <div class="control-container">
                 <div class="control box-shadow">
                     <app-single-select [options]="sortOrder.options"
-                                       [triggerText]="'sort order'"
+                                       [triggerText]="'Sort Order'"
                                        formControlName="selectedSortOrder">
                     </app-single-select>
                 </div>
 
                 <div class="control box-shadow">
                     <app-single-select [options]="sortBy.options"
-                                    [triggerText]="'sort by'"
+                                    [triggerText]="'Sort By'"
                                     formControlName="selectedSortBy">
                     </app-single-select>
                 </div>
 
                 <div class="control box-shadow">
                     <app-multi-select [options]="dataTypes.options"
-                                      [triggerText]="'data types'"
+                                      [triggerText]="'Data Types'"
                                       formControlName="selectedDataTypes">
                     </app-multi-select>
                 </div>
 
                 <div class="control box-shadow">
                     <app-multi-select [options]="tradeChannels.options"
-                                      [triggerText]="'trade channels'"
+                                      [triggerText]="'Trade Channels'"
                                       formControlName="selectedTradeChannels">
                     </app-multi-select>
                 </div>
             </div>
         </form>
     }
+
 </div>

@@ -11,6 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { SingleSelectComponent } from '../form-controls/single-select/single-select.component';
 import { MultiSelectComponent } from '../form-controls/multi-select/multi-select.component';
 import { InputNumericComponent } from '../form-controls/input-numeric/input-numeric.component';
+import { InputTextComponent } from '../form-controls/input-text/input-text.component';
 
 @Component({
     selector: 'app-browser',
@@ -18,7 +19,8 @@ import { InputNumericComponent } from '../form-controls/input-numeric/input-nume
         ReactiveFormsModule,
         SingleSelectComponent,
         MultiSelectComponent,
-        InputNumericComponent
+        InputNumericComponent,
+        InputTextComponent
     ],
     templateUrl: './browser.component.html',
     styleUrl: './browser.component.scss'

@@ -1,0 +1,53 @@
+input {
+    background-color: var(--surface-container-high);
+    color: var(--on-surface);
+    padding: 0rem 0rem 0.3rem 0.3rem;
+    font-size: .9rem;
+}
+
+/* Placeholder text color */
+input::placeholder {
+    color: var(--on-surface);
+    font-size: .9rem;
+}
+
+input:focus,
+input:hover {
+    background-color: var(--surface-variant);
+    color: var(--on-surface-variant);
+}
+
+.field {
+    position: relative;
+    margin: .5rem 0;
+}
+
+/* floating label */
+.field input:placeholder-shown + label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0);  /* optional if you animate */
+  transition: 0.2s ease;
+}
+
+.field label {
+    position: absolute;
+    left: 0rem;
+    top: 0.75rem;
+    color: #888;
+    padding: 0 0.25rem;
+    pointer-events: none;
+    transition: 0.2s ease;
+}
+
+.field input:focus {
+    border-color: #4a90e2;
+}
+
+.field input:not(:placeholder-shown) + label {
+    top: -1.2rem;
+    left: 0rem;
+    font-size: 0.7rem;
+    color: #4a90e2;
+}
+

@@ -16,6 +16,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class MultiSelectComponent  implements OnInit, ControlValueAccessor {
     @Input() options: string[] = [];
     @Input() triggerText: string = '';
+    triggerTextValue: string = '';
 
     panelOpen:boolean = false;
 
@@ -28,6 +29,7 @@ export class MultiSelectComponent  implements OnInit, ControlValueAccessor {
     }
 
     ngOnInit(): void {
+        this.triggerTextValue = this.triggerText;
     }
 
     writeValue(obj: string[]): void {
@@ -53,6 +55,12 @@ export class MultiSelectComponent  implements OnInit, ControlValueAccessor {
         } else {
             // add selection
             this.value.push(value);
+        }
+
+        if (this.value.length > 0) {
+            this.triggerTextValue = `${this.triggerText} (${this.value.length})`;
+        } else {
+            this.triggerTextValue = this.triggerText;
         }
     }
 
