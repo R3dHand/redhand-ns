@@ -12,6 +12,7 @@ import { SingleSelectComponent } from '../form-controls/single-select/single-sel
 import { MultiSelectComponent } from '../form-controls/multi-select/multi-select.component';
 import { InputNumericComponent } from '../form-controls/input-numeric/input-numeric.component';
 import { InputTextComponent } from '../form-controls/input-text/input-text.component';
+import { SearchResultFood } from '../../models/usda/search-result-food.model';
 
 @Component({
     selector: 'app-browser',
@@ -49,6 +50,8 @@ export class BrowserComponent implements OnInit{
         endDate: new FormControl<string|null>(null)
     });
 
+
+
     constructor (
         private usdaSearchService: UsdaSearchService
     ) {
@@ -60,18 +63,21 @@ export class BrowserComponent implements OnInit{
     }
 
     search() {
-        const searchCriteria = {...this.queryForm.value, ...this.searchCriteriaForm.value} as FoodSearchCriteriaModel
-        var test = '';
+        const searchCriteria = {
+            ...this.queryForm.value,
+            ...this.searchCriteriaForm.value
+        } as FoodSearchCriteriaModel
 
-        // this.usdaSearchService.search(searchCriteria).subscribe({
-        //     next: this.handleSearchResult.bind(this),
-        //     error: this.handleError.bind(this)
-        // });
+        this.usdaSearchService.search(searchCriteria).subscribe({
+            next: this.handleSearchResult.bind(this),
+            error: this.handleError.bind(this)
+        });
     }
 
     handleSearchResult(searchResult: SearchResultModel) {
-        var test = '';
+        this.usdaSearchService.searchResults$.next(searchResult);
     }
+
     handleError(errorResponse: HttpErrorResponse) {
 
     }

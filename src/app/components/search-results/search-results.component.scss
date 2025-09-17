@@ -1,0 +1,36 @@
+.search-results-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.results-list {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.result-item {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--surface);
+}
+
+.item-headline {
+    display: flex;
+    flex-direction: column;
+}
+
+.headline {
+    font: var(--headline-small);
+    color: var(--on-surface);
+}
+
+.supporting-text {
+    color: var(--on-surface-variant);
+}
+
+hr {
+    color: var(--on-surface-variant);
+}
+

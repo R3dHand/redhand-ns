@@ -1,0 +1,29 @@
+<div class="search-results-container">
+    <div class="results-list">
+        @for(result of resultsList; track $index) {
+            <div class="result-item">
+                @if(result.dataType === 'Branded') {
+                    @if (result.brandName == undefined || result.brandName == '') {
+                        <span class="headline">{{ result.description}}</span>
+                    } @else {
+                        <span class="headline">{{ result.brandName }}</span>
+                    }
+                    <span class="supporting-text">{{ result.brandOwner}}</span>
+                } @else {
+                    <span class="headline">{{ result.description }}</span>
+                }
+            </div>
+
+            <div>
+                <hr />
+            </div>
+        }
+    </div>
+
+
+    <div class="result-detail">
+        @if(resultsLoaded) {
+            {{ selectedResult.foodCategory }}
+        }
+    </div>
+</div>
