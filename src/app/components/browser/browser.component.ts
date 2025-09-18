@@ -13,6 +13,7 @@ import { MultiSelectComponent } from '../form-controls/multi-select/multi-select
 import { InputNumericComponent } from '../form-controls/input-numeric/input-numeric.component';
 import { InputTextComponent } from '../form-controls/input-text/input-text.component';
 import { SearchResultFood } from '../../models/usda/search-result-food.model';
+import { SearchComponent } from '../form-controls/search/search.component';
 
 @Component({
     selector: 'app-browser',
@@ -21,7 +22,8 @@ import { SearchResultFood } from '../../models/usda/search-result-food.model';
         SingleSelectComponent,
         MultiSelectComponent,
         InputNumericComponent,
-        InputTextComponent
+        InputTextComponent,
+        SearchComponent
     ],
     templateUrl: './browser.component.html',
     styleUrl: './browser.component.scss'
@@ -42,9 +44,9 @@ export class BrowserComponent implements OnInit{
         selectedDataTypes: new FormControl<string[]>([]),
         pageSize: new FormControl<number|null>(50),
         pageNumber: new FormControl<number|null>(1),
+        brandOwner: new FormControl<string|null>(null),
         selectedSortBy: new FormControl<string|null>({ value: null, disabled: false}),
         selectedSortOrder: new FormControl<string|null>(null),
-        brandOwner: new FormControl<string|null>(null),
         selectedTradeChannels: new FormControl<string[]>([]),
         startDate: new FormControl<string|null>(null),
         endDate: new FormControl<string|null>(null)
@@ -68,10 +70,12 @@ export class BrowserComponent implements OnInit{
             ...this.searchCriteriaForm.value
         } as FoodSearchCriteriaModel
 
-        this.usdaSearchService.search(searchCriteria).subscribe({
-            next: this.handleSearchResult.bind(this),
-            error: this.handleError.bind(this)
-        });
+        var test = '';
+
+        // this.usdaSearchService.search(searchCriteria).subscribe({
+        //     next: this.handleSearchResult.bind(this),
+        //     error: this.handleError.bind(this)
+        // });
     }
 
     handleSearchResult(searchResult: SearchResultModel) {
