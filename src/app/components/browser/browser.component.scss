@@ -22,21 +22,6 @@
     flex-wrap: wrap;
 }
 
-.search-filters-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: fit-content;
-    gap: 16px;
-    padding: 16px;
-
-    border-radius: 8px;
-
-    background-color: var(--surface-container-high);
-    color: var(--on-surface);
-}
-
 .control-container {
     display: flex;
     flex-wrap: wrap;

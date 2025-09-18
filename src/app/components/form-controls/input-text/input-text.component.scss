@@ -1,53 +1,49 @@
-input {
-    background-color: var(--surface-container-high);
-    color: var(--on-surface);
-    padding: 0rem 0rem 0.3rem 0.3rem;
-    font-size: .9rem;
-}
-
-/* Placeholder text color */
-input::placeholder {
-    color: var(--on-surface);
-    font-size: .9rem;
-}
-
-input:focus,
-input:hover {
-    background-color: var(--surface-variant);
-    color: var(--on-surface-variant);
-}
-
 .field {
     position: relative;
-    margin: .5rem 0;
+    height: 56px;
+
+    padding: 16px 8px;
+    border: 1px solid var(--outline);
+    border-radius: 4px;
+
+    &:focus-within {
+        border: 2px solid var(--primary);
+    }
+}
+
+input {
+    color: var(--on-surface);
+    background-color: inherit;
+    font: var(--body-large);
+}
+
+input::placeholder {
+    color: var(--on-surface-variant);
+    font: var(--body-large);
 }
 
 /* floating label */
 .field input:placeholder-shown + label {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(0);  /* optional if you animate */
-  transition: 0.2s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0);  /* optional if you animate */
+    transition: 0.3s ease;
 }
 
 .field label {
     position: absolute;
-    left: 0rem;
-    top: 0.75rem;
-    color: #888;
-    padding: 0 0.25rem;
+    left: 0;
     pointer-events: none;
     transition: 0.2s ease;
-}
-
-.field input:focus {
-    border-color: #4a90e2;
+    margin-left: 8px;
+    padding: 0px 4px;
 }
 
 .field input:not(:placeholder-shown) + label {
-    top: -1.2rem;
-    left: 0rem;
-    font-size: 0.7rem;
-    color: #4a90e2;
+    top: -9px;
+    left: 0px;
+    font: var(--label-small);
+    color: var(--primary);
+    background-color: var(--surface);
 }
 
