@@ -34,6 +34,28 @@
     color: var(--on-surface-variant);
 
     padding: 24px;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+
+        padding-bottom: 24px;
+
+        color: var(--on-surface-variant);
+        font: var(--headline-small);
+
+        svg {
+            fill: var(--on-surface-variant);
+        }
+        svg:hover {
+            cursor: pointer;
+        }
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 0;
+    }
 }
 
 // .filters-form {
