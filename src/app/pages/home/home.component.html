@@ -1,3 +1,67 @@
-    <app-browser></app-browser>
-    <app-search-results></app-search-results>
+<!-- <app-browser></app-browser> -->
+<div class="query-form-container">
+    <form [formGroup]="queryForm" class="query-form">
+        <app-search formControlName="query"
+                    (keydownEnter)="search()"
+                    (toggleSearchFilter)="showSearchCriteria = !showSearchCriteria"
+                    [hasFilterOptions]="true">
+        </app-search>
+    </form>
+</div>
 
+<div class="results-filters-container">
+    <div class="search-results-container">
+        <app-search-results></app-search-results>
+    </div>
+
+    @if (showSearchCriteria) {
+        <div class="side-sheet">
+            <div class="header">
+                Filters
+            </div>
+            <form [formGroup]="searchCriteriaForm" class="filters-form">
+                <div class="control-container">
+                    <div>
+                        <app-input-text formControlName="brandOwner"
+                                        [title]="'Brand Owner'"
+                                        [placeholder]="'Brand Owner'"
+                                        [label]="'Brand Owner'"
+                                        [id]="'brandOwner'">
+                        </app-input-text>
+                    </div>
+
+                    <div>
+                        <app-single-select [options]="sortOrder.options"
+                                        [triggerText]="'Sort Order'"
+                                        formControlName="selectedSortOrder">
+                        </app-single-select>
+                    </div>
+
+                    <div>
+                        <app-single-select [options]="sortBy.options"
+                                        [triggerText]="'Sort By'"
+                                        formControlName="selectedSortBy">
+                        </app-single-select>
+                    </div>
+
+                    <div>
+                        <app-multi-select [options]="dataTypes.options"
+                                        [triggerText]="'Data Types'"
+                                        formControlName="selectedDataTypes">
+                        </app-multi-select>
+                    </div>
+
+                    <div>
+                        <app-multi-select [options]="tradeChannels.options"
+                                        [triggerText]="'Trade Channels'"
+                                        formControlName="selectedTradeChannels">
+                        </app-multi-select>
+                    </div>
+                </div>
+            </form>
+            <div class="footer">
+                Action footer
+            </div>
+        </div>
+    }
+</div>

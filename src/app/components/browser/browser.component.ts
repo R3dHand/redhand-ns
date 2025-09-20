@@ -72,10 +72,10 @@ export class BrowserComponent implements OnInit{
 
         var test = '';
 
-        // this.usdaSearchService.search(searchCriteria).subscribe({
-        //     next: this.handleSearchResult.bind(this),
-        //     error: this.handleError.bind(this)
-        // });
+        this.usdaSearchService.search(searchCriteria).subscribe({
+            next: this.handleSearchResult.bind(this),
+            error: this.handleError.bind(this)
+        });
     }
 
     handleSearchResult(searchResult: SearchResultModel) {

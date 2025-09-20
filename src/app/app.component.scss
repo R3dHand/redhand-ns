@@ -1,18 +1,10 @@
 
 .app-container {
-    display: flex;
-    flex-direction: column;
-
-    
     height: 100%;
     overflow: auto;
 }
 
 .header {
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: space-between;
-
     background-color: var(--surface);
     color: var(--on-surface);
 }
