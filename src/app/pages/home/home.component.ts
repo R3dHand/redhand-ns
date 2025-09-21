@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BrowserComponent } from '../../components/browser/browser.component';
 import { SearchResultsComponent } from '../../components/search-results/search-results.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FoodSearchCriteriaModel } from '../../models/usda/food-search-criteria.model';
@@ -7,7 +6,6 @@ import { DataTypesModel } from '../../models/usda/data-types.model';
 import { TradeChannelsModel } from '../../models/usda/trade-channels.model';
 import { SortOrderModel } from '../../models/usda/sort-order.model';
 import { SortByModel } from '../../models/usda/sort-by.model';
-import { SingleSelectComponent } from '../../components/form-controls/single-select/single-select.component';
 import { MultiSelectComponent } from '../../components/form-controls/multi-select/multi-select.component';
 import { InputNumericComponent } from '../../components/form-controls/input-numeric/input-numeric.component';
 import { InputTextComponent } from '../../components/form-controls/input-text/input-text.component';
@@ -20,9 +18,7 @@ import { SingleSelectMenuComponent } from '../../components/form-controls/single
 @Component({
     selector: 'app-home',
     imports: [
-        // BrowserComponent,
         ReactiveFormsModule,
-        SingleSelectComponent,
         SingleSelectMenuComponent,
         MultiSelectComponent,
         InputNumericComponent,
