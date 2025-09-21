@@ -23,44 +23,48 @@
                 </span>
             </div>
             <form [formGroup]="searchCriteriaForm" class="filters-form">
-                <div class="control-container">
-                    <div>
-                        <app-input-text formControlName="brandOwner"
-                                        [title]="'Brand Owner'"
-                                        [placeholder]="'Brand Owner'"
-                                        [label]="'Brand Owner'"
-                                        [id]="'brandOwner'">
-                        </app-input-text>
-                    </div>
-
-                    <div>
-                        <app-single-select [options]="sortOrder.options"
-                                        [triggerText]="'Sort Order'"
-                                        formControlName="selectedSortOrder">
-                        </app-single-select>
-                    </div>
-
-                    <div>
-                        <app-single-select [options]="sortBy.options"
-                                        [triggerText]="'Sort By'"
-                                        formControlName="selectedSortBy">
-                        </app-single-select>
-                    </div>
-
-                    <div>
-                        <app-multi-select [options]="dataTypes.options"
-                                        [triggerText]="'Data Types'"
-                                        formControlName="selectedDataTypes">
-                        </app-multi-select>
-                    </div>
-
-                    <div>
-                        <app-multi-select [options]="tradeChannels.options"
-                                        [triggerText]="'Trade Channels'"
-                                        formControlName="selectedTradeChannels">
-                        </app-multi-select>
-                    </div>
+                <div>
+                    <app-input-text formControlName="brandOwner"
+                                    [title]="'Brand Owner'"
+                                    [placeholder]="'Brand Owner'"
+                                    [label]="'Brand Owner'"
+                                    [id]="'brandOwner'">
+                    </app-input-text>
                 </div>
+
+                <div>
+                    <app-single-select-menu [options]="sortOrder.options"
+                                            [title]="'Sort Order'"
+                                            [placeholder]="'Sort Order'"
+                                            [label]="'Sort Order'"
+                                            [id]="'sortOrder'"
+                                            formControlName="selectedSortOrder">
+                    </app-single-select-menu>
+                </div>
+
+                <div>
+                    <app-single-select-menu [options]="sortBy.options"
+                                            [title]="'Sort By'"
+                                            [placeholder]="'Sort By'"
+                                            [label]="'Sort By'"
+                                            [id]="'sortBy'"
+                                            formControlName="selectedSortBy">
+                    </app-single-select-menu>
+                </div>
+
+                <!-- <div>
+                    <app-multi-select [options]="dataTypes.options"
+                                    [triggerText]="'Data Types'"
+                                    formControlName="selectedDataTypes">
+                    </app-multi-select>
+                </div>
+
+                <div>
+                    <app-multi-select [options]="tradeChannels.options"
+                                    [triggerText]="'Trade Channels'"
+                                    formControlName="selectedTradeChannels">
+                    </app-multi-select>
+                </div> -->
             </form>
             <div class="footer">
                 Action footer

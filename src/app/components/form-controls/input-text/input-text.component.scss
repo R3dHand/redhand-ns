@@ -24,6 +24,8 @@ input::placeholder {
 
 /* floating label */
 .field input:placeholder-shown + label {
+    position: absolute;
+    top: 0;
     opacity: 0;
     visibility: hidden;
     transform: translateY(0);  /* optional if you animate */

@@ -58,7 +58,9 @@
     }
 }
 
-// .filters-form {
-//     width: 100%;
-// }
+.filters-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 

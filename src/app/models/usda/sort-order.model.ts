@@ -3,7 +3,6 @@ export class SortOrderModel {
     desc = "DESC";
 
     options: string [] = [
-        "",
         "ASC",
         "DESC"
     ]

@@ -15,6 +15,7 @@ import { SearchComponent } from '../../components/form-controls/search/search.co
 import { UsdaSearchService } from '../../services/usda/usda-search.service';
 import { SearchResultModel } from '../../models/usda/search-result.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { SingleSelectMenuComponent } from '../../components/form-controls/single-select-menu/single-select-menu.component';
 
 @Component({
     selector: 'app-home',
@@ -22,6 +23,7 @@ import { HttpErrorResponse } from '@angular/common/http';
         // BrowserComponent,
         ReactiveFormsModule,
         SingleSelectComponent,
+        SingleSelectMenuComponent,
         MultiSelectComponent,
         InputNumericComponent,
         InputTextComponent,
@@ -72,10 +74,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
         var test = '';
 
-        this.usdaSearchService.search(searchCriteria).subscribe({
-            next: this.handleSearchResult.bind(this),
-            error: this.handleError.bind(this)
-        });
+        // this.usdaSearchService.search(searchCriteria).subscribe({
+        //     next: this.handleSearchResult.bind(this),
+        //     error: this.handleError.bind(this)
+        // });
     }
 
     handleSearchResult(searchResult: SearchResultModel) {

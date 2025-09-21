@@ -1,0 +1,36 @@
+<div class="single-select-menu">
+    <div class="field" (click)="togglePanelOpen()" [class.panel-open]="panelOpen">
+        <input type="text"
+            readonly
+            [placeholder]="placeholder"
+            [title]="title"
+            [value]="value"
+            [id]="id" />
+
+        <label [for]="id">{{ label }}</label>
+
+        @if (panelOpen) {
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="m280-400 200-200 200 200H280Z"/></svg>
+            </span>
+        } @else {
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-360 280-560h400L480-360Z"/></svg>
+            </span>
+        }
+
+    </div>
+    @if (panelOpen) {
+        <div class="options-panel">
+            @for (option of options; track $index) {
+                <div class="option" [class.selected]="option === value" (click)="setValue(option)">
+                    <span>{{ option }}</span>
+                </div>
+            } @empty {
+                <p>single-select requires options</p>
+            }  
+
+        </div>
+        <div class="overlay" (click)="panelOpen = !panelOpen"></div>
+    }
+</div>
