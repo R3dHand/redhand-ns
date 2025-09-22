@@ -79,6 +79,7 @@ li {
     top: 100%;
     min-width: 100%;
     background-color: var(--surface-container);
+    border-radius: 0px 0px 4px 4px; // adjust corners for upward panel
 
     z-index: 100;
 
@@ -92,6 +93,7 @@ li {
 .option {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 48px;
 
     border-bottom-left-radius: 4px;

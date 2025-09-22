@@ -6,7 +6,6 @@ import { DataTypesModel } from '../../models/usda/data-types.model';
 import { TradeChannelsModel } from '../../models/usda/trade-channels.model';
 import { SortOrderModel } from '../../models/usda/sort-order.model';
 import { SortByModel } from '../../models/usda/sort-by.model';
-import { MultiSelectComponent } from '../../components/form-controls/multi-select/multi-select.component';
 import { InputNumericComponent } from '../../components/form-controls/input-numeric/input-numeric.component';
 import { InputTextComponent } from '../../components/form-controls/input-text/input-text.component';
 import { SearchComponent } from '../../components/form-controls/search/search.component';
@@ -14,13 +13,14 @@ import { UsdaSearchService } from '../../services/usda/usda-search.service';
 import { SearchResultModel } from '../../models/usda/search-result.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SingleSelectMenuComponent } from '../../components/form-controls/single-select-menu/single-select-menu.component';
+import { MultiSelectMenuComponent } from '../../components/form-controls/multi-select-menu/multi-select-menu.component';
 
 @Component({
     selector: 'app-home',
     imports: [
         ReactiveFormsModule,
         SingleSelectMenuComponent,
-        MultiSelectComponent,
+        MultiSelectMenuComponent,
         InputNumericComponent,
         InputTextComponent,
         SearchComponent,

@@ -1,5 +1,8 @@
-<div class="single-select-menu">
-    <div class="field" (click)="togglePanelOpen()" [class.panel-open]="panelOpen">
+<div class="select-menu">
+    <div class="field"
+         (click)="togglePanelOpen()"
+         [class.panel-open]="panelOpen"
+         #optionsPanelTrigger>
         <input type="text"
             readonly
             [placeholder]="placeholder"
@@ -21,7 +24,7 @@
 
     </div>
     @if (panelOpen) {
-        <div class="options-panel">
+        <div class="options-panel" [class.open-above]="displayPanelAbove">
             @for (option of options; track $index) {
                 <div class="option" [class.selected]="option === value" (click)="setValue(option)">
                     <span>{{ option }}</span>

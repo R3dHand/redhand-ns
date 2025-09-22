@@ -2,17 +2,17 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'app-single-select-menu',
+  selector: 'app-multi-select-menu',
   imports: [],
-  templateUrl: './single-select-menu.component.html',
-  styleUrl: './single-select-menu.component.scss',
+  templateUrl: './multi-select-menu.component.html',
+  styleUrl: './multi-select-menu.component.scss',
     providers: [{
         provide: NG_VALUE_ACCESSOR,
-        useExisting: SingleSelectMenuComponent,
+        useExisting: MultiSelectMenuComponent,
         multi: true
     }]
 })
-export class SingleSelectMenuComponent implements OnInit, ControlValueAccessor {
+export class MultiSelectMenuComponent implements OnInit, ControlValueAccessor{
     @Input() options: string[] = [];
     @Input() title: string = '';
     @Input() placeholder: string = '';
@@ -20,8 +20,9 @@ export class SingleSelectMenuComponent implements OnInit, ControlValueAccessor {
     @Input() id: string = '';
     panelOpen:boolean = false;
     
-    value: string|null = null;
-    onChange = (value: string | null): void => {};
+    value: string[] = [];
+    triggerText: string = '';
+    onChange = (value: string[]): void => {};
     onTouched = (): void => {};
     disabled: boolean = false;
 
@@ -29,13 +30,15 @@ export class SingleSelectMenuComponent implements OnInit, ControlValueAccessor {
     optionsPanelHeight: number = 0;
     @ViewChild('optionsPanelTrigger', { static: true }) optionsPanelTrigger!: ElementRef<HTMLElement>;
     displayPanelAbove: boolean = false;
-    
+
+    constructor() {
+    }
     ngOnInit(): void {
         // Set pixel height for the options panel.  Each option has a 48px height
         this.optionsPanelHeight = (this.options.length * 48);
     }
 
-    writeValue(obj: string|null): void {
+    writeValue(obj: string[]): void {
         this.value = obj;
     }
     registerOnChange(fn: any): void {
@@ -51,15 +54,23 @@ export class SingleSelectMenuComponent implements OnInit, ControlValueAccessor {
     setValue(value: string) {
         if (this.disabled) { return; }
 
-        if (value === this.value) {
-            this.value = null;
+        if (this.value.includes(value)) {
+            // remove selection
+            const selectedOptionIndex = this.value.indexOf(value);
+            this.value.splice(selectedOptionIndex, 1);
         } else {
-            this.value = value;
+            // add selection
+            this.value.push(value);
+        }
+
+        if (this.value.length > 0) {
+            this.triggerText = `${this.value[0]} (${this.value.length})`;
+        } else {
+            this.triggerText = '';
         }
 
         this.onChange(this.value);
         this.onTouched();
-        this.panelOpen = false;
     }
 
     togglePanelOpen() {
@@ -75,4 +86,5 @@ export class SingleSelectMenuComponent implements OnInit, ControlValueAccessor {
             this.displayPanelAbove = spaceBelow < this.optionsPanelHeight && spaceAbove > spaceBelow;
         }
     }
+
 }

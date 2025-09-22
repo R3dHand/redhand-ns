@@ -52,19 +52,25 @@
                     </app-single-select-menu>
                 </div>
 
-                <!-- <div>
-                    <app-multi-select [options]="dataTypes.options"
-                                    [triggerText]="'Data Types'"
-                                    formControlName="selectedDataTypes">
-                    </app-multi-select>
+                <div>
+                    <app-multi-select-menu [options]="dataTypes.options"
+                                           [title]="'Data Types'"
+                                           [placeholder]="'Data Types'"
+                                           [label]="'Data Types'"
+                                           [id]="'dataTypes'"
+                                           formControlName="selectedDataTypes">
+                    </app-multi-select-menu>
                 </div>
 
                 <div>
-                    <app-multi-select [options]="tradeChannels.options"
-                                    [triggerText]="'Trade Channels'"
-                                    formControlName="selectedTradeChannels">
-                    </app-multi-select>
-                </div> -->
+                    <app-multi-select-menu [options]="tradeChannels.options"
+                                           [title]="'Trade Channels'"
+                                           [placeholder]="'Trade Channels'"
+                                           [label]="'Trade Channels'"
+                                           [id]="'tradeChannels'"
+                                           formControlName="selectedTradeChannels">
+                    </app-multi-select-menu>
+                </div>
             </form>
             <div class="footer">
                 Action footer
