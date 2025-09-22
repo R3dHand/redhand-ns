@@ -7,7 +7,7 @@
             readonly
             [placeholder]="placeholder"
             [title]="title"
-            [value]="triggerText"
+            [value]="value.length > 0 ? `${value[0]} (${value.length})` : ''"
             [id]="id" />
 
         <label [for]="id">{{ label }}</label>

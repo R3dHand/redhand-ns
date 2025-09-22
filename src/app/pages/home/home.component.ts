@@ -68,6 +68,9 @@ export class HomeComponent implements OnInit, OnDestroy {
             ...this.searchCriteriaForm.value
         } as FoodSearchCriteriaModel
 
+        if (this.showSearchCriteria) {
+            this.showSearchCriteria = !this.showSearchCriteria;
+        }
         var test = '';
 
         // this.usdaSearchService.search(searchCriteria).subscribe({

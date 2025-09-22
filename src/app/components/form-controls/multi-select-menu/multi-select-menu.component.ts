@@ -21,7 +21,6 @@ export class MultiSelectMenuComponent implements OnInit, ControlValueAccessor{
     panelOpen:boolean = false;
     
     value: string[] = [];
-    triggerText: string = '';
     onChange = (value: string[]): void => {};
     onTouched = (): void => {};
     disabled: boolean = false;
@@ -62,13 +61,6 @@ export class MultiSelectMenuComponent implements OnInit, ControlValueAccessor{
             // add selection
             this.value.push(value);
         }
-
-        if (this.value.length > 0) {
-            this.triggerText = `${this.value[0]} (${this.value.length})`;
-        } else {
-            this.triggerText = '';
-        }
-
         this.onChange(this.value);
         this.onTouched();
     }
