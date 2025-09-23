@@ -1,0 +1,49 @@
+.button-small-icon {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 8px;
+
+    height: 40px;
+
+    padding-left: 16px;
+    padding-right: 16px;
+
+
+
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    font: var(--label-large);
+}
+.button-small-icon:hover {
+    cursor: pointer;
+}
+
+.button-filled {
+    background-color: var(--primary);
+    color: var(--on-primary);
+    fill: var(--on-primary);
+
+    input {
+        background-color: var(--primary);
+        color: var(--on-primary);
+        cursor: pointer;
+    }
+}
+
+.button-tonal {
+    background-color: var(--secondary-container);
+    color: var(--on-secondary-container);
+    fill: var(--on-secondary-container);
+
+    input {
+        background-color: var(--secondary-container);
+        color: var(--on-secondary-container);
+        cursor: pointer;
+    }
+}
+
+

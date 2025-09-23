@@ -57,7 +57,7 @@
         align-items: center;
         justify-content: start;
         gap: 8px;
-        
+
         height: 72px;
 
         padding-top: 16px;
@@ -72,37 +72,5 @@
 }
 
 
-// search button
-.button-small-icon {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    gap: 8px;
-
-    height: 40px;
-
-    padding-left: 16px;
-    padding-right: 16px;
-
-    background-color: var(--primary);
-    color: var(--on-primary);
-    fill: var(--on-primary);
-
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-
-    font: var(--label-large);
-
-    input {
-        background-color: var(--primary);
-        color: var(--on-primary);
-        cursor: pointer;
-    }
-}
-.button-small-icon:hover {
-    cursor: pointer;
-}
 
 

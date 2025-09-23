@@ -87,6 +87,14 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     }
 
+    clearSearchFilters() {
+        this.searchCriteriaForm.get('brandOwner')?.setValue('');
+        this.searchCriteriaForm.get('selectedSortOrder')?.setValue('');
+        this.searchCriteriaForm.get('selectedSortBy')?.setValue('');
+        this.searchCriteriaForm.get('selectedDataTypes')?.setValue([]);
+        this.searchCriteriaForm.get('selectedTradeChannels')?.setValue([]);
+    }
+
     ngOnDestroy(): void {
     }
 }
