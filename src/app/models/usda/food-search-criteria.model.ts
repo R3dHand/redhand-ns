@@ -1,12 +1,12 @@
 export class FoodSearchCriteriaModel {
     query: string;
-    selectedDataTypes: string[]|undefined;
+    dataType: string[]|undefined;
     pageSize: number|undefined;
     pageNumber: number|undefined;
-    selectedSortBy: string[]|undefined;
-    selectedSortOrder: string|undefined;
+    sortBy: string[]|undefined;
+    sortOrder: string|undefined;
     brandOwner: string|undefined;
-    selectedTradeChannels: string[]|undefined;
+    tradeChannel: string[]|undefined;
     startDate: string|undefined;
     endDate: string|undefined;
 

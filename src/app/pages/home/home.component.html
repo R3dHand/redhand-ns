@@ -11,7 +11,7 @@
 
 <div class="results-filters-container">
     <div class="search-results-container">
-        <app-search-results></app-search-results>
+        <app-search-results [searchResults]="searchResults"></app-search-results>
     </div>
 
     @if (showSearchCriteria) {
@@ -24,11 +24,12 @@
             </div>
             <form [formGroup]="searchCriteriaForm" class="filters-form">
                 <div>
-                    <app-input-text formControlName="brandOwner"
-                                    [title]="'Brand Owner'"
+                    <app-input-text [title]="'Brand Owner'"
                                     [placeholder]="'Brand Owner'"
                                     [label]="'Brand Owner'"
-                                    [id]="'brandOwner'">
+                                    [id]="'brandOwner'"
+                                    (keydown.enter)="search()"
+                                    formControlName="brandOwner">
                     </app-input-text>
                 </div>
 
@@ -38,7 +39,7 @@
                                             [placeholder]="'Sort Order'"
                                             [label]="'Sort Order'"
                                             [id]="'sortOrder'"
-                                            formControlName="selectedSortOrder">
+                                            formControlName="sortOrder">
                     </app-single-select-menu>
                 </div>
 
@@ -48,7 +49,7 @@
                                             [placeholder]="'Sort By'"
                                             [label]="'Sort By'"
                                             [id]="'sortBy'"
-                                            formControlName="selectedSortBy">
+                                            formControlName="sortBy">
                     </app-single-select-menu>
                 </div>
 
@@ -58,7 +59,7 @@
                                            [placeholder]="'Data Types'"
                                            [label]="'Data Types'"
                                            [id]="'dataTypes'"
-                                           formControlName="selectedDataTypes">
+                                           formControlName="dataType">
                     </app-multi-select-menu>
                 </div>
 
@@ -68,7 +69,7 @@
                                            [placeholder]="'Trade Channels'"
                                            [label]="'Trade Channels'"
                                            [id]="'tradeChannels'"
-                                           formControlName="selectedTradeChannels">
+                                           formControlName="tradeChannel">
                     </app-multi-select-menu>
                 </div>
             </form>

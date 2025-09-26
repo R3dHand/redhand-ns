@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
 })
 export class UsdaSearchService {
     apiKey: string  = 'Gaa7CdZ52KybXMgLo7sagPUyf6LNBfE243gh4hho';
-    apiUrl: string = '';
+    apiUrl: string;
 
     searchResults$ = new Subject<SearchResultModel>();
 

@@ -1,7 +1,7 @@
 <div class="search-results-container">
     <div class="results-list">
         @for(result of resultsList; track $index) {
-            <div class="result-item">
+            <div class="result-item" (click)="setSelectedResult($index)" [class.selected-result]="resultsList.indexOf(selectedResult) === $index">
                 @if(result.dataType === 'Branded') {
                     @if (result.brandName == undefined || result.brandName == '') {
                         <span class="headline">{{ result.description}}</span>
@@ -13,17 +13,65 @@
                     <span class="headline">{{ result.description }}</span>
                 }
             </div>
-
-            <div>
-                <hr />
-            </div>
         }
     </div>
 
 
     <div class="result-detail">
         @if(resultsLoaded) {
-            {{ selectedResult.foodCategory }}
+            @if(selectedResult.description !== null && selectedResult.description !== undefined && selectedResult.description !== '') {
+                <div>Description: {{selectedResult.description}}</div>
+            }
+            @if(selectedResult.dataType !== null && selectedResult.dataType !== undefined && selectedResult.dataType !== '') {
+                <div>Data Type: {{selectedResult.dataType}}</div>
+            }
+            @if(selectedResult.brandName !== null && selectedResult.brandName !== undefined && selectedResult.brandName !== '') {
+                <div>Brand Name: {{selectedResult.brandName}}</div>
+            }
+            @if(selectedResult.brandOwner !== null && selectedResult.brandOwner !== undefined && selectedResult.brandOwner !== '') {
+                <div>Brand Owner: {{selectedResult.brandOwner}}</div>
+            }
+            @if(selectedResult.foodCategory !== null && selectedResult.foodCategory !== undefined && selectedResult.foodCategory !== '') {
+                <div>Food Category: {{selectedResult.foodCategory}}</div>
+            }
+            <div>-</div>
+            @if(selectedResult.ingredients !== null && selectedResult.ingredients !== undefined && selectedResult.ingredients !== '') {
+                <div>Ingredients: {{selectedResult.ingredients}}</div>
+            }
+            @if(selectedResult.packageWeight !== null && selectedResult.packageWeight !== undefined && selectedResult.packageWeight !== '') {
+                <div>Package Weight: {{selectedResult.packageWeight}}</div>
+            }
+            @if(selectedResult.servingSizeUnit !== null && selectedResult.servingSizeUnit !== undefined) {
+                <div>Serving Size: {{selectedResult.servingSize}}{{selectedResult.servingSizeUnit}}</div>
+            }
+            @if(selectedResult.householdServingFullText !== null && selectedResult.householdServingFullText !== undefined && selectedResult.householdServingFullText !== '') {
+                <div>Household Serving: {{selectedResult.householdServingFullText}}</div>
+            }
+            <div>-</div>
+            @if(selectedResult.marketCountry !== null && selectedResult.marketCountry !== undefined && selectedResult.marketCountry !== '') {
+                <div>Market Country: {{selectedResult.marketCountry}}</div>
+            }
+            @if(selectedResult.dataSource !== null && selectedResult.dataSource !== undefined && selectedResult.dataSource !== '') {
+                <div>Data Source: {{selectedResult.dataSource}}</div>
+            }
+            @if(selectedResult.modifiedDate !== null && selectedResult.modifiedDate !== undefined && selectedResult.modifiedDate !== '') {
+                <div>Published: {{selectedResult.publishedDate}} - Modified: {{selectedResult.modifiedDate}}</div>
+            }
+            @if(selectedResult.fdcId !== null && selectedResult.fdcId !== undefined) {
+                <div>FDC ID: {{selectedResult.fdcId}}</div>
+            }
+            @if(selectedResult.gtinUpc !== null && selectedResult.gtinUpc !== undefined && selectedResult.gtinUpc !== '') {
+                <div>GTIN UPC: {{selectedResult.gtinUpc}}</div>
+            }
+            @if(selectedResult.score !== null && selectedResult.score !== undefined) {
+                <div>Score: {{selectedResult.score}}</div>
+            }
+
+            <!-- <div class="card">
+                <div class="headline"></div>
+                <div class="sub-head"></div>
+                <div class="supporting-text"></div>
+            </div> -->
         }
     </div>
 </div>

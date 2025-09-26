@@ -14,9 +14,13 @@
 .results-filters-container {
     position: relative;
     display: flex;
+
+    overflow: auto;
+    height: 100%;
 }
 
 .search-results-container {
+    overflow: auto;
     width: 100%;
 }
 

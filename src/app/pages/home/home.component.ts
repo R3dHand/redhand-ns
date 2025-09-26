@@ -34,25 +34,26 @@ export class HomeComponent implements OnInit, OnDestroy {
         query: new FormControl<string>('')
     });
 
-    showSearchCriteria: boolean = true;
-    
+    showSearchCriteria: boolean = true;    
     searchCriteria = new FoodSearchCriteriaModel('');
     dataTypes = new DataTypesModel();
     tradeChannels = new TradeChannelsModel();
     sortOrder = new SortOrderModel();
     sortBy = new SortByModel();
     searchCriteriaForm: FormGroup = new FormGroup({
-        selectedDataTypes: new FormControl<string[]>([]),
-        pageSize: new FormControl<number|null>(50),
+        dataType: new FormControl<string[]>([]),
+        pageSize: new FormControl<number|null>(25),
         pageNumber: new FormControl<number|null>(1),
         brandOwner: new FormControl<string|null>(null),
-        selectedSortBy: new FormControl<string|null>({ value: null, disabled: false}),
-        selectedSortOrder: new FormControl<string|null>(null),
-        selectedTradeChannels: new FormControl<string[]>([]),
+        sortBy: new FormControl<string|null>({ value: null, disabled: false}),
+        sortOrder: new FormControl<string|null>(null),
+        tradeChannel: new FormControl<string[]>([]),
         startDate: new FormControl<string|null>(null),
         endDate: new FormControl<string|null>(null)
     });
     
+    searchResults = {} as SearchResultModel;
+
     constructor (
         private usdaSearchService: UsdaSearchService
     ) {
@@ -68,19 +69,15 @@ export class HomeComponent implements OnInit, OnDestroy {
             ...this.searchCriteriaForm.value
         } as FoodSearchCriteriaModel
 
-        if (this.showSearchCriteria) {
-            this.showSearchCriteria = !this.showSearchCriteria;
-        }
-        var test = '';
-
-        // this.usdaSearchService.search(searchCriteria).subscribe({
-        //     next: this.handleSearchResult.bind(this),
-        //     error: this.handleError.bind(this)
-        // });
+        this.usdaSearchService.search(searchCriteria).subscribe({
+            next: this.handleSearchResult.bind(this),
+            error: this.handleError.bind(this)
+        });
     }
 
     handleSearchResult(searchResult: SearchResultModel) {
-        this.usdaSearchService.searchResults$.next(searchResult);
+        this.searchResults = searchResult;
+        this.showSearchCriteria = false;
     }
 
     handleError(errorResponse: HttpErrorResponse) {
